@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <form method="POST" action="{{ url_for('editar_quarto', quarto_id=quarto.id) }}">
+            {{ form.hidden_tag() }}
+            
+            {{ form.quarto.label }}
+            {{ form.quarto }}
+            
+            {{ form.hospede.label }}
+            {{ form.hospede }}
+            
+            {{ form.check_out.label }}
+            {{ form.check_out }}
+
+            {{ form.check_out_time.label }}
+            {{ form.check_out_time }}
+            
+            {{ form.detalhes.label }}
+            {{ form.detalhes }}
+            
+            {{ form.botao_confirmacao }}
+        </form> 
+</body>
+</html>

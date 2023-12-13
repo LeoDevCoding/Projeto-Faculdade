@@ -1,0 +1,97 @@
+{% extends "login.html" %}
+
+{% block titulo %}
+            Criar Conta - HMS
+{% endblock %}
+
+{% block form %}
+
+<form method="POST">
+
+    {{ form.csrf_token }}
+
+    <span class="form-login-tittle">
+        Cadastrar Funcionário
+    </span>
+
+
+    <div class="form-login-input">
+        {{form.email.label(class="focus-input-form")}}
+        {{form.email(class="form-input")}}
+    </div>
+
+    {% if form.email.errors %}
+      {% for erro in form.email.errors %}
+        <br>
+        <span style="color:red">{{erro}}</span>
+      
+      {% endfor%}
+    {% endif %}
+
+    <br><br>
+    <div class="form-login-input"> 
+        {{form.username.label(class="focus-input-form")}}
+        {{form.username(class="form-input")}}
+    </div>
+
+    {% if form.email.username %}
+      {% for erro in form.email.username %}
+        <br>
+        <span style="color:red">{{erro}}</span>
+      
+      {% endfor%}
+    {% endif %}
+
+    <br>
+    <div class="form-login-input"> 
+        {{form.senha.label(class="focus-input-form")}}
+        {{form.senha(class="form-input")}}
+    </div>
+
+    {% if form.email.senha %}
+    {% for erro in form.email.senha %}
+      <br>
+      <span style="color:red">{{erro}}</span>
+    
+    {% endfor%}
+    {% endif %}
+
+    <br>
+    <div class="form-login-input"> 
+        {{form.cargo.label(class="focus-input-form")}}
+        {{form.cargo(class="form-input")}}
+    </div>
+
+    {% if form.email.cargo %}
+    {% for erro in form.email.cargo %}
+      <br>
+      <span style="color:red">{{erro}}</span>
+    
+    {% endfor%}
+    {% endif %}
+
+    <br>
+    <div class="form-login-input"> 
+        {{form.confirmacao_senha.label(class="focus-input-form")}}
+        {{form.confirmacao_senha(class="form-input")}}
+    </div>
+
+    {% if form.email.confirmacao_senha %}
+    {% for erro in form.email.confirmacao_senha %}
+      <br>
+      <span style="color:red">{{erro}}</span>
+    
+    {% endfor%}
+    {% endif %}
+
+    <br><br>
+    <div class="container-form-buttom">
+        {{form.botao_confirmacao(class="form-login-btn")}}
+    </div>
+        
+    <br>
+    <a href="home" class="btn-back">Voltar</a>
+      
+</form>
+
+{% endblock %}

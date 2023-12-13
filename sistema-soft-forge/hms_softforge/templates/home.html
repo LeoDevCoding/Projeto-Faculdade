@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HMS - Home</title>
+    <link rel="stylesheet" href="../static/css/styleHome.css" />
+    <link
+      rel="shortcut icon"
+      href="../static/img/soft_forge_logo"
+      type="image/x-icon"
+    />
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="img-title">
+        <img
+          src="../static/img/soft_forge_logo.png"
+          alt="Home"
+          width="80"
+          height="80"
+          class="img-home"
+        />
+        <h1 class="title-h1">Bem-vindo a Home!</h1>
+      </div>
+      <div class="sair">
+        <a href="{{ url_for('logout') }}">Logout</a>
+      </div>
+    </div>
+
+    <div class="head">
+      {% if current_user.cargo == 'gerente' %}
+        <div class="head-card">
+          <div class="is-card-box">
+          <div class="card-title">Tarefas</div>
+          <a class="btn-a" href="/tarefas">Acessar</a>
+          </div>
+        </div>
+        <div class="head-card">
+          <div class="is-card-box">
+            <div class="card-title">Reservas</div>
+            <a class="btn-a" href="/reservas">Acessar</a>
+          </div>
+        </div>
+        <div class="head-card">
+          <div class="is-card-box">
+            <div class="card-title">Funcionários</div>
+            <a class="btn-a" href="/funcionarios">Acessar</a>
+          </div>
+        </div>
+        <div class="head-card">
+          <div class="is-card-box">
+            <div class="card-title">Cadastrar funcionário</div>
+            <a class="btn-a" href="/criarconta">Acessar</a>
+          </div>
+        </div>
+
+      {% elif current_user.cargo == 'atendente' %}
+        <div class="head-card">
+          <div class="is-card-box">
+            <div class="card-title">Tarefas</div>
+            <a class="btn-a" href="/tarefas">Acessar</a>
+          </div>
+        </div>
+        <div class="head-card">
+          <div class="is-card-box">
+            <div class="card-title">Reservas</div>
+            <a class="btn-a" href="/reservas">Acessar</a>
+          </div>
+        </div>
+
+      {% elif current_user.cargo == 'funcionario' %}
+        <div class="head-card">
+          <div class="is-card-box">
+            <div class="card-title">Tarefas</div>
+            <a class="btn-a" href="/tarefas">Acessar</a>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="rodape">
+      <footer>&reg; by SoftForge-2023</footer>
+    </div>
+  </body>
+</html>
